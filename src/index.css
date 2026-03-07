@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #060d1f;
+  --color-ink-lighter: #0b1628;
+  --color-ink-lightest: #101f38;
+  --color-sidebar: #1A1C1E;
+  --color-main-bg: #F8F9FA;
+  --color-card: #ffffff;
+  --shadow-soft: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Cairo", sans-serif;
+    @apply antialiased;
+  }
+}
+
+.glass {
+  @apply bg-ink/75 backdrop-blur-xl border-b border-white/10;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.15), transparent 70%);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
