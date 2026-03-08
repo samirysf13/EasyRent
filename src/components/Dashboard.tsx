@@ -308,7 +308,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
       .update({
         insurance_expiry: editCarForm.insurance_expiry || null,
         maintenance_date: editCarForm.maintenance_date || null,
-        mileage: mileageNum
+        mileage: mileageNum !== null ? Number(mileageNum) : null
       })
       .eq('id', editingCarId);
 
@@ -362,7 +362,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
       status: carForm.status,
       daily_price: dailyPrice,
       image_url: carForm.image_url.trim() || null,
-      mileage: mileageNum,
+      mileage: mileageNum !== null ? Number(mileageNum) : null,
       is_ready: carForm.is_ready
     });
 
@@ -1633,6 +1633,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
                         type="number" 
                         placeholder="0" 
                         min="0"
+                        step="1"
                         value={editCarForm.mileage}
                         onChange={(e) => setEditCarForm({...editCarForm, mileage: e.target.value})}
                         className="w-full bg-white border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
@@ -1715,6 +1716,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
                           type="number" 
                           placeholder="0" 
                           min="0"
+                          step="1"
                           value={carForm.mileage}
                           onChange={(e) => setCarForm({...carForm, mileage: e.target.value})}
                           className="w-full bg-white border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
